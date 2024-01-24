@@ -2,20 +2,20 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import Home from './Home';
-import About from './About';
-import ContactUs from './ContactUs';
-import Product from './Product';
-import FAQPage from './FAQPage';
+import About from './COMPONENTS/About';
+import ContactUs from './COMPONENTS/ContactUs/ContactUs';
+import Product from './COMPONENTS/Product/Product';
+import FAQPage from './COMPONENTS/FAQPage';
 import Navbar from './Navbar';
-import Payment from './Payment';
-import ProductDescription from './ProductDescription';
-import AddtoCart from './AddtoCart';
-import CheckOut from './CheckOut';
-import Delivery from './Delivery';
+import Payment from './COMPONENTS/CheckOut/Payment';
+import ProductDescription from './COMPONENTS/Product/ProductDescription';
+import AddtoCart from './COMPONENTS/Product/AddtoCart';
+import CheckOut from './COMPONENTS/CheckOut/CheckOut';
+import Delivery from './COMPONENTS/ContactUs/Delivery';
 import ErrorPage from './ErrorPage';
-import { CartProvider } from './CartContext';
-import OrderConfirmation from './OrderConfirmation'; // Corrected import
-import { OrderProvider } from './OrderContext';
+import { CartProvider } from './COMPONENTS/Product/CartContext';
+import OrderConfirmation from './COMPONENTS/CheckOut/OrderConfirmation'; // Corrected import
+import { OrderProvider } from './COMPONENTS/CheckOut/OrderContext';
 
 const AppContainer = styled.div`
   display: flex;

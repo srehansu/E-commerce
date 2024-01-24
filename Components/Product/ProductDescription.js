@@ -12,12 +12,11 @@ const Container = styled.div`
 
 const ContentContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 20px;
-  padding-left: 15rem;
 
   @media (max-width: 768px) {
-    padding-left: 0;
+    flex-direction: column;
   }
 `;
 
@@ -28,14 +27,15 @@ const ImageContainer = styled.div`
 
 const Image = styled.img`
   width: 100%;
+  height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `;
 
 const InfoContainer = styled.div`
-  flex: 2;
-  padding-left: 20px;
-  padding-top: 20px;
+  flex: 1;
+  padding-left: 20rem;
+  padding-top: 10rem;
 `;
 
 const ProductName = styled.h1`
@@ -76,12 +76,16 @@ const SimilarProductsContainerWrapper = styled.div`
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
 `;
 
 const SimilarProductsContainer = styled.div`
+  flex: 1;
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
+  overflow-y: auto;
 `;
 
 const SimilarProduct = styled.div`
@@ -95,6 +99,14 @@ const SimilarProduct = styled.div`
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
+  max-height: 400px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+  }
 `;
 
 const SimilarProductName = styled.h2`
@@ -177,14 +189,14 @@ const products = [
   {
     id: 11,
     title: 'Laptop',
-    image: 'path/to/image1.jpg',
+    image: 'https://media.istockphoto.com/id/1394988455/photo/laptop-with-a-blank-screen-on-a-white-background.jpg?s=612x612&w=0&k=20&c=BXNMs3xZNXP__d22aVkeyfvgJ5T18r6HuUTEESYf_tE=',
     price: 29.99,
     description: 'Description of Product 1.',
   },
   {
     id: 12,
     title: 'Football',
-    image: 'path/to/image2.jpg',
+    image: 'https://media.istockphoto.com/id/93889291/photo/football-used-isolated-old-style-soccer-ball-on-white-background.jpg?s=612x612&w=0&k=20&c=rRDUovgbcAQhXcYxZ79_LEAl73qD-f3_35-UyCE9DhM=',
     price: 39.99,
     description: 'Description of Product 2.',
   },
@@ -192,7 +204,7 @@ const products = [
   {
     id: 13,
     title: 'I phone',
-    image: 'path/to/image2.jpg',
+    image: 'https://media.istockphoto.com/id/1360563991/photo/iphone-13-pro-in-white-background-new-smartphone-from-apple-company-close-up.jpg?s=612x612&w=0&k=20&c=TmlB8YCgRjHOAHUe3cOJ0mcxGoqfliehLIUQ4vSC0Nk=',
     price: 39.99,
     description: 'Description of Product 2.',
   },
@@ -200,7 +212,7 @@ const products = [
   {
     id: 14,
     title: 'Android',
-    image: 'path/to/image2.jpg',
+    image: 'https://media.istockphoto.com/id/1297241364/photo/black-smart-phone-with-white-screen-isolated-white-background.jpg?s=612x612&w=0&k=20&c=MJDli6NP16WaDdT-VWvZuS32UkB2vlCZr1nsBfEjjEI=',
     price: 39.99,
     description: 'Description of Product 2.',
   },
@@ -208,7 +220,7 @@ const products = [
   {
     id: 15,
     title: 'Smart TV',
-    image: 'path/to/image2.jpg',
+    image: 'https://media.istockphoto.com/id/467946398/photo/contemporary-curved-led-smart-tv-design.jpg?s=612x612&w=0&k=20&c=s-eIL1kSR1YalWVGFk9sIvt0XbJMQGIlLlzUUbw6jLA=',
     price: 39.99,
     description: 'Description of Product 2.',
   },
@@ -216,7 +228,7 @@ const products = [
   {
     id: 16,
     title: 'T-shirt',
-    image: 'path/to/image2.jpg',
+    image: 'https://media.istockphoto.com/id/482948743/photo/blank-white-t-shirt-front-with-clipping-path.jpg?s=612x612&w=0&k=20&c=cJG_B0mOIG42FKtC_rqIeZCClYOj7UCFNNs9WTkYEEE=',
     price: 39.99,
     description: 'Description of Product 2.',
   },
@@ -250,11 +262,11 @@ const ProductDescription = () => {
       title: state.productName,
       price: state.productPrice,
       quantity: quantity,
-      image: state.productImage, // Include the image in the cart item for display in the cart
-      description: state.productDescription, // Include the description in the cart item
+      image: state.productImage,
+      description: state.productDescription,
     };
 
-    addToCart(newItem); // Assuming addToCart is a function from useCartContext
+    addToCart(newItem);
     console.log('Product added to cart:', newItem);
     console.log('Navigating to /AddToCart');
     navigate('/AddToCart');

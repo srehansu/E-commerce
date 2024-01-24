@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'; // Import Link if you are using React Router
 import styled from 'styled-components';
 
 const TopImageContainer = styled.div`
@@ -8,7 +8,7 @@ const TopImageContainer = styled.div`
 const TopImage = styled.img`
   max-width: 100%;
   width: 100%;
-  height: 49vh;
+  height: 90vh;
 `;
 
 const ContactUsContainer = styled.div`
@@ -16,7 +16,7 @@ const ContactUsContainer = styled.div`
   padding: 20px;
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Ensures the container takes at least the full viewport height */
+  min-height: 90vh; /* Ensures the container takes at least the full viewport height */
 `;
 
 const ContactContentContainer = styled.div`
@@ -24,7 +24,7 @@ const ContactContentContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-
+  margin-bottom: -1rem;
   @media (max-width: 767px) {
     flex-direction: column;
   }
@@ -43,7 +43,6 @@ const ContactInfoContainer = styled.div`
 
 const ContactFormContainer = styled.div`
   flex: 1;
-  padding: 10px;
   max-width: 600px; /* Adjust the max-width as needed */
 `;
 
@@ -78,13 +77,36 @@ const SubmitButton = styled.button`
   padding: 10px 15px;
   border: none;
   cursor: pointer;
+  margin-right: 10px; /* Add margin to the right of the existing button */
+
+  &:hover {
+    background-color: #2980b9; /* Change hover color as needed */
+  }
+`;
+
+
+
+const StylishButton = styled.button`
+background-color: #3498db;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+
+  &:hover {
+    background-color: #2980b9; /* Change hover color as needed */
+  }
 `;
 
 const ContactUs = () => {
   return (
     <>
       <TopImageContainer>
-        <TopImage src="https:images.jpg" />
+        <TopImage
+          src="https://media.istockphoto.com/id/1091858450/photo/contact-us-sign-on-a-wooden-desk.jpg?s=612x612&w=0&k=20&c=Ff4enIFR2WC0QCa_CSB0RHHaNJI-t64Pa6XBuNdfux4="
+          alt="Contact Us"
+        />
       </TopImageContainer>
 
       <ContactUsContainer>
@@ -113,6 +135,12 @@ const ContactUs = () => {
               </FormGroup>
 
               <SubmitButton type="submit">Submit</SubmitButton>
+              {/* StylishButton added here */}
+              <StylishButton>
+                {/* Use Link if you are using React Router */}
+                {/* <Link to="/Delivery">Go to Delivery</Link> */}
+                {/* Use anchor tag for navigation if not using React Router */}
+                <a href="/Delivery" style={{ textDecoration: 'none', color: 'white' }}>Go to Delivery</a>              </StylishButton>
             </ContactForm>
           </ContactFormContainer>
 

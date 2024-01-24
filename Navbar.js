@@ -66,7 +66,7 @@ const CloseButton = styled.div`
 const NavLinks = styled.div`
   display: flex;
   gap: 5.5rem;
-  margin-left: 15%;
+  margin-left: 18%;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -107,6 +107,11 @@ const NavLink = styled(Link)`
 const LogoContainer = styled.div`
   display: flex;
   align-items: center;
+`;
+const LogoImage = styled.img`
+  width: 10rem; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin-right: 10px; /* Optional: Add some margin to the right for spacing */
 `;
 
 const ShoppingLogo = styled.div`
@@ -174,7 +179,9 @@ const Navbar = () => {
   return (
     <NavbarContainer>
       <LogoContainer>
-        <Logo to="/">Your Logo</Logo>
+  <Logo to="/">
+    <LogoImage src="https://squbix.com/static/media/logo_textbyside_green.b4e827e094e3952c92a66327c6af0680.svg" alt="Logo" />
+  </Logo>
         {!showMenu ? (
           <MenuIcon onClick={toggleMenu}>☰</MenuIcon>
         ) : (
